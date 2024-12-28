@@ -2,61 +2,326 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ELMOAI - Agencia de Chatbots con IA Chilena</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body, html {
+        /* Reset básico */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Tipografía y colores */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #dddddd;  /* Exact background color from logo */
+            color: #393939;  /* Updated text color as specified */
             line-height: 1.6;
+            width: 100%;
+            height: 100%;
         }
+
+        /* Contenedor principal */
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 100%;
             padding: 2rem;
-            text-align: center;
+            margin: 0 auto;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;  
+            min-height: 100vh;
+            justify-content: center;
+            animation: fadeIn 2s ease-in-out;
         }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Logo estilizado */
         .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #2c3e50;
+            font-family: 'Roboto Slab', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #393939;  /* Consistent text color */
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #8B7D6B;  
+            margin: 10px auto 0;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .logo:hover::after {
+            width: 100px;
+        }
+
+        /* Eslogan con efecto de resplandor */
+        .tagline {
+            font-size: 1.8rem;
+            color: #393939;  /* Consistent text color */
+            margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Caja de descripción con sombras y bordes redondeados */
+        .description {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;  
+        }
+
+        .description:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+        }
+
+        .description p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #393939;  /* Consistent text color */
+            text-align: center;  /* Center-justify text */
+        }
+
+        /* Botón de llamada a la acción */
+        .cta-button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #6F5F4F;  
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #5A4E3F;  
+            transform: scale(1.05);
+        }
+
+        /* Fondo decorativo */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle at center, rgba(136, 125, 107, 0.1), transparent 70%);
+            transform: translateX(-50%) rotate(45deg);
+            z-index: -1;
+        }
+
+        /* Logo container */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;  
             margin-bottom: 1rem;
         }
-        .tagline {
-            font-size: 1.5rem;
-            color: #34495e;
-            margin-bottom: 2rem;
+
+        /* Logo image */
+        .logo-img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
         }
-        .description {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+        .logo-img:hover {
+            transform: scale(1.1);
         }
-        @media (max-width: 600px) {
+
+        /* Contact section */
+        #contact {
+            text-align: center;
+        }
+
+        #contact form {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #contact input, 
+        #contact textarea {
+            width: 100%;
+            text-align: left;  
+        }
+
+        /* Responsividad */
+        @media screen and (max-width: 768px) {
             .container {
                 padding: 1rem;
             }
+
             .logo {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
+
             .tagline {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
+
+            .description {
+                padding: 2rem;
+            }
+
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.3rem;
+            }
+
+            .description {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            padding: 2.5rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+            color: #393939;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #6F5F4F;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #5A4E3F;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">ELMOAI</div>
-        <div class="tagline">La Agencia de Chatbots con IA Chilena Más Grande y Reconocida del País</div>
+        <div class="logo-container">
+            <img class="logo-img" src="logo.png" alt="ELMOAI Logo">
+            <div class="logo">ELMOAI</div>
+        </div>
+        <div class="tagline">Transformaremos la Inteligencia Artificial en Chile</div>
         <div class="description">
-            <p>Estamos revolucionando la inteligencia artificial en Chile, creando soluciones de chatbot innovadoras y personalizadas para empresas de todos los tamaños.</p>
+            <p>Impulsamos la revolución de IA en Chile, creando chatbots inteligentes que revolcionarán la comunicación empresarial.</p>
+            <a href="#contact" class="cta-button">Únete a la Revolución</a>
         </div>
     </div>
+
+    <!-- Sección de Contacto (opcional) -->
+    <div id="contact" class="container" style="padding: 4rem 2rem;">
+        <h2 style="font-family: 'Roboto Slab', serif; color: #393939; margin-bottom: 2rem; font-size: 2.5rem;">Contacto</h2>
+        <form style="max-width: 800px; margin: 0 auto; text-align: center; background-color: rgba(111, 95, 79, 0.05); padding: 3rem; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+            <div style="margin-bottom: 1.5rem; text-align: center;">
+                <input type="text" placeholder="Nombre" style="width: 100%; padding: 1rem; border: 2px solid #6F5F4F; border-radius: 8px; text-align: center; font-size: 1.2rem; background-color: #fff; color: #393939;">
+            </div>
+            <div style="margin-bottom: 1.5rem; text-align: center;">
+                <input type="email" placeholder="Correo Electrónico" style="width: 100%; padding: 1rem; border: 2px solid #6F5F4F; border-radius: 8px; text-align: center; font-size: 1.2rem; background-color: #fff; color: #393939;">
+            </div>
+            <div style="margin-bottom: 1.5rem; text-align: center;">
+                <textarea placeholder="Mensaje" rows="7" style="width: 100%; padding: 1rem; border: 2px solid #6F5F4F; border-radius: 8px; text-align: center; font-size: 1.2rem; background-color: #fff; color: #393939;"></textarea>
+            </div>
+            <button type="submit" style="padding: 1rem 2.5rem; background-color: #5A4E3F; color: #fff; border: none; border-radius: 40px; cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease; font-size: 1.3rem; font-weight: bold; text-transform: uppercase; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Enviar Mensaje</button>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2 style="font-family: 'Roboto Slab', serif; margin-bottom: 1rem;">Gracias por tu interés</h2>
+            <p>Lamentablemente, en este momento el formulario no hace nada.</p>
+            <button id="closeModal" style="margin-top: 1rem; padding: 0.75rem 1.5rem; background-color: #6F5F4F; color: #fff; border: none; border-radius: 30px; cursor: pointer;">Entendido</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('#contact form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('contactModal').style.display = 'flex';
+        });
+
+        // Close modal when clicking on close button or outside the modal
+        document.querySelector('.modal-close').addEventListener('click', function() {
+            document.getElementById('contactModal').style.display = 'none';
+        });
+
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('contactModal').style.display = 'none';
+        });
+
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
