@@ -2,9 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ELMOAI - Agencia de Chatbots con IA Chilena</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELMOAI - Democratizando la IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         /* Reset básico */
         * {
@@ -15,211 +16,386 @@
 
         /* Tipografía y colores */
         html, body {
-            max-width: 100%;
+            width: 100%;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #dddddd;  /* Exact background color from logo */
-            color: #393939;  /* Updated text color as specified */
+            background-color: #f5f5f5;
+            color: #333;
             line-height: 1.6;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Contenedor principal */
-        .container {
-            width: 100%;
-            max-width: 100%;
-            padding: 2rem;
-            margin: 0 auto;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;  
-            min-height: 100vh;
-            justify-content: center;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        /* Animaciones */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Logo estilizado */
-        .logo {
-            font-family: 'Roboto Slab', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            color: #393939;  /* Consistent text color */
-            margin-bottom: 0.5rem;
             position: relative;
         }
 
-        .logo::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: #8B7D6B;  
-            margin: 10px auto 0;
-            border-radius: 2px;
-            transition: width 0.3s ease;
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
-        .logo:hover::after {
-            width: 100px;
-        }
-
-        /* Eslogan con efecto de resplandor */
-        .tagline {
-            font-size: 1.8rem;
-            color: #393939;  /* Consistent text color */
-            margin-bottom: 2.5rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        /* Caja de descripción con sombras y bordes redondeados */
-        .description {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            max-width: 600px;
+        /* Sección genérica */
+        section {
             width: 100%;
-            text-align: center;  
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
         }
 
-        .description:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+        /* Titulares */
+        section h2, section h1 {
+            font-family: 'Roboto Slab', serif;
+            color: #333;
+            margin-bottom: 1.5rem;
         }
 
-        .description p {
+        section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        section p {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #393939;  /* Consistent text color */
-            text-align: center;  /* Center-justify text */
+            margin-bottom: 1.5rem;
         }
 
-        /* Botón de llamada a la acción */
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: url('https://via.placeholder.com/1600x900') no-repeat center center/cover;
+            position: relative;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
         .cta-button {
             display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #fff;
-            background-color: #6F5F4F;  
+            background-color: #6F5F4F;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .cta-button:hover {
+            background-color: #5A4E3F;
+            transform: translateY(-3px);
+        }
+
+        /* Animaciones */
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Light Background Sections */
+        .light-bg {
+            background: #fff;
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* FadeIn Animation */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Servicios Icons */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: #fafafa;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #6F5F4F;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonios */
+        .testimonials {
+            background: #f0f0f0;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin: 2rem 0;
+        }
+
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial .client {
+            font-weight: 600;
+            color: #6F5F4F;
+        }
+
+        /* Equipo */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .team-member h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #6F5F4F;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* ELMOAI Lab */
+        .lab-section {
+            background: #fff;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin: 2rem 0;
+        }
+
+        /* Contact Form */
+        #contact form {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: left;
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        #contact input,
+        #contact textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #6F5F4F;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            background-color: #fafafa;
+            color: #333;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.3s ease;
+        }
+
+        #contact input:focus,
+        #contact textarea:focus {
+            border-color: #5A4E3F;
+            outline: none;
+        }
+
+        #contact button {
+            width: 100%;
+            padding: 1rem;
+            background-color: #6F5F4F;
+            color: #fff;
             border: none;
             border-radius: 30px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .cta-button:hover {
-            background-color: #5A4E3F;  
-            transform: scale(1.05);
+        #contact button:hover {
+            background-color: #5A4E3F;
+            transform: translateY(-3px);
         }
 
-        /* Fondo decorativo */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle at center, rgba(136, 125, 107, 0.1), transparent 70%);
-            transform: translateX(-50%) rotate(45deg);
-            z-index: -1;
+        /* Pie de Página */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
         }
 
-        /* Logo container */
-        .logo-container {
+        footer .footer-links {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;  
+            justify-content: center;
+            gap: 2rem;
             margin-bottom: 1rem;
         }
 
-        /* Logo image */
-        .logo-img {
-            width: 150px;
-            height: 150px;
-            object-fit: contain;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease;
+        footer .footer-links a {
+            color: #fff;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        .logo-img:hover {
-            transform: scale(1.1);
+        footer .footer-links a:hover {
+            color: #6F5F4F;
         }
 
-        /* Contact section */
-        #contact {
-            text-align: center;
+        footer .social-icons {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
         }
 
-        #contact form {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
+        footer .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
         }
 
-        #contact input, 
-        #contact textarea {
-            width: 100%;
-            text-align: left;  
+        footer .social-icons a:hover {
+            color: #6F5F4F;
         }
 
         /* Responsividad */
-        @media screen and (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-
-            .logo {
+        @media screen and (max-width: 1024px) {
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .tagline {
-                font-size: 1.5rem;
+            .hero p {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            section {
+                padding: 3rem 1.5rem;
             }
 
-            .description {
-                padding: 2rem;
-            }
-
-            .cta-button {
-                width: 100%;
-                text-align: center;
+            .team-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media screen and (max-width: 480px) {
-            .logo {
-                font-size: 2.5rem;
+            .hero h1 {
+                font-size: 2rem;
             }
 
-            .tagline {
-                font-size: 1.3rem;
-            }
-
-            .description {
-                padding: 1.5rem;
+            .hero p {
+                font-size: 1.1rem;
             }
         }
 
-        /* Modal styles */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -232,10 +408,16 @@
             background-color: rgba(0,0,0,0.5);
             justify-content: center;
             align-items: center;
+            animation: fadeInModal 0.5s ease;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .modal-content {
-            background-color: #fefefe;
+            background-color: #fff;
             padding: 2.5rem;
             border-radius: 15px;
             width: 90%;
@@ -243,8 +425,14 @@
             text-align: center;
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             position: relative;
-            color: #393939;
+            color: #333;
             font-family: 'Inter', sans-serif;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); }
+            to { transform: translateY(0); }
         }
 
         .modal-close {
@@ -260,55 +448,222 @@
         .modal-close:hover {
             color: #5A4E3F;
         }
+
+        .modal button {
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #6F5F4F;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .modal button:hover {
+            background-color: #5A4E3F;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo-container">
-            <img class="logo-img" src="logo.png" alt="ELMOAI Logo">
-            <div class="logo">ELMOAI</div>
-        </div>
-        <div class="tagline">Seremos la agencia de Inteligencia Artificial más grande de Chile</div>
-        <div class="description">
-            <p>Impulsaremos la revolución de la IA en el país, creando chatbots inteligentes que transformarán la comunicación empresarial.</p>
-            <a href="#contact" class="cta-button">Únete a la Revolución</a>
-        </div>
-    </div>
 
-    <!-- Sección de Contacto (opcional) -->
-    <div id="contact" class="container" style="padding: 4rem 2rem;">
-        <h2 style="font-family: 'Roboto Slab', serif; color: #393939; margin-bottom: 2rem; font-size: 2.5rem;">Contacto</h2>
-        <form style="max-width: 800px; margin: 0 auto; text-align: center; background-color: rgba(111, 95, 79, 0.05); padding: 3rem; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-            <div style="margin-bottom: 1.5rem; text-align: center;">
-                <input type="text" placeholder="Nombre" style="width: 100%; padding: 1rem; border: 2px solid #6F5F4F; border-radius: 8px; text-align: center; font-size: 1.2rem; background-color: #fff; color: #393939;">
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-content animate__animated animate__fadeInDown">
+            <h1>ELMOAI: Democratizando la Inteligencia Artificial</h1>
+            <p class="subtitle">SALVAJES - VISIONARIOS - TRANSFORMADORES</p>
+            <a href="#contact" class="cta-button">Comienza hoy a revolucionar tu comunicación</a>
+        </div>
+    </section>
+
+    <!-- 1. Inicio: Tu Socio en la Revolución de la IA -->
+    <section id="inicio-socio">
+        <div class="light-bg animate__animated animate__fadeInUp">
+            <h2>Transforma tu negocio con inteligencia artificial accesible.</h2>
+            <p>Diseñamos soluciones que conectan, simplifican y empoderan.</p>
+            <a href="#contact" class="cta-button">Comienza hoy a revolucionar tu comunicación empresarial</a>
+        </div>
+    </section>
+
+    <!-- 2. Nuestra Historia: Una Visión en Construcción -->
+    <section id="historia">
+        <h2>El comienzo de algo grande.</h2>
+        <div class="light-bg animate__animated animate__fadeInUp">
+            <p>
+                En 2024, nació ELMOAI con una visión clara: hacer que la inteligencia artificial deje de ser exclusiva para grandes corporaciones y se convierta en una herramienta accesible para todos.
+            </p>
+            <p>
+                Somos una agencia joven, pero con grandes ambiciones. Queremos ser los líderes en IA en Chile, acompañando a emprendedores y pequeñas empresas en este emocionante viaje hacia la transformación digital.
+            </p>
+            <p><strong>Nuestro compromiso:</strong></p>
+            <ul>
+                <li>Diseñar soluciones simples, efectivas y adaptadas a la realidad de cada cliente.</li>
+                <li>Democratizar la tecnología, haciendo que sea accesible para cualquier presupuesto.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 3. Nuestros Servicios: IA a Tu Medida -->
+    <section id="servicios">
+        <h2>Tecnología accesible para transformar tu negocio.</h2>
+        <p>Soluciones diseñadas para potenciar tu comunicación empresarial.</p>
+        <div class="services-grid animate__animated animate__fadeInUp">
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>Chatbots inteligentes</h3>
+                <p>Responde a tus clientes las 24 horas con tecnología que entiende sus necesidades.</p>
             </div>
-            <div style="margin-bottom: 1.5rem; text-align: center;">
-                <input type="email" placeholder="Correo Electrónico" style="width: 100%; padding: 1rem; border: 2px solid #6F5F4F; border-radius: 8px; text-align: center; font-size: 1.2rem; background-color: #fff; color: #393939;">
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Automatización de procesos</h3>
+                <p>Simplifica tareas repetitivas para ahorrar tiempo y reducir costos.</p>
             </div>
-            <div style="margin-bottom: 1.5rem; text-align: center;">
-                <textarea placeholder="Mensaje" rows="7" style="width: 100%; padding: 1rem; border: 2px solid #6F5F4F; border-radius: 8px; text-align: center; font-size: 1.2rem; background-color: #fff; color: #393939;"></textarea>
+            <div class="service-card">
+                <div class="service-icon">💡</div>
+                <h3>Consultoría personalizada</h3>
+                <p>Te ayudamos a identificar cómo la IA puede marcar la diferencia en tu negocio.</p>
             </div>
-            <button type="submit" style="padding: 1rem 2.5rem; background-color: #5A4E3F; color: #fff; border: none; border-radius: 40px; cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease; font-size: 1.3rem; font-weight: bold; text-transform: uppercase; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Enviar Mensaje</button>
+        </div>
+        <div class="light-bg animate__animated animate__fadeInUp">
+            <p><strong>Por qué elegirnos:</strong></p>
+            <ul>
+                <li>Precios accesibles, ideales para pequeños y medianos emprendimientos.</li>
+                <li>Soluciones flexibles que se adaptan a tu sector y tus objetivos.</li>
+                <li>Soporte técnico cercano, siempre enfocado en tu crecimiento.</li>
+            </ul>
+            <a href="#contact" class="cta-button">Explora nuestras soluciones y da el primer paso hacia el futuro</a>
+        </div>
+    </section>
+
+    <!-- 4. Nuestro Compromiso: Una Revolución para Todos -->
+    <section id="compromiso">
+        <h2>La tecnología debe ser inclusiva.</h2>
+        <div class="light-bg animate__animated animate__fadeInUp">
+            <p>
+                En ELMOAI, creemos que la inteligencia artificial no es solo para las grandes empresas. Nuestra misión es asegurarnos de que cualquier emprendedor, sin importar su tamaño o sector, pueda acceder a herramientas de IA diseñadas específicamente para sus necesidades.
+            </p>
+            <p><strong>Principios que nos guían:</strong></p>
+            <ul>
+                <li>Accesibilidad: Soluciones ajustadas a cualquier presupuesto.</li>
+                <li>Personalización: Adaptamos la tecnología a la realidad de cada negocio.</li>
+                <li>Impacto local: Impulsamos la innovación desde Chile para Chile.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 5. Casos Potenciales: Un Futuro por Escribir -->
+    <section id="casos">
+        <h2>Imagina lo que podemos lograr juntos.</h2>
+        <div class="light-bg animate__animated animate__fadeInUp">
+            <p>
+                Aunque estamos comenzando, ya hemos identificado cómo nuestras herramientas pueden marcar la diferencia en diversos sectores. Desde pequeños emprendimientos en comercio hasta servicios especializados, ELMOAI está listo para acompañarte en tu transformación digital.
+            </p>
+            <a href="#contact" class="cta-button">Sé parte de nuestros primeros casos de éxito</a>
+        </div>
+    </section>
+
+    <!-- 6. El Equipo: Pasión e Innovación -->
+    <section id="equipo">
+        <h2>Personas comprometidas con tu éxito.</h2>
+        <div class="light-bg animate__animated animate__fadeInUp">
+            <p>
+                Somos un grupo de entusiastas de la tecnología y la innovación. Cada miembro de ELMOAI trabaja con el propósito de ofrecer soluciones prácticas y accesibles, diseñadas para empoderar a nuestros clientes.
+            </p>
+            <p>
+                Nos motiva la idea de transformar el panorama empresarial chileno, ofreciendo herramientas que todos puedan usar.
+            </p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/200" alt="Miembro del Equipo">
+                    <h3>Juan Pérez</h3>
+                    <p>CEO & Fundador</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/200" alt="Miembro del Equipo">
+                    <h3>María González</h3>
+                    <p>CTO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/200" alt="Miembro del Equipo">
+                    <h3>Carlos Díaz</h3>
+                    <p>Especialista en IA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. ELMOAI Lab: Donde Nacen las Ideas -->
+    <section id="lab">
+        <h2>Innovación con propósito.</h2>
+        <div class="lab-section animate__animated animate__fadeInUp">
+            <p>
+                Nuestro laboratorio es un espacio dedicado a diseñar, experimentar y perfeccionar cada una de nuestras soluciones. Aquí combinamos creatividad, tecnología y un enfoque centrado en las personas para que la inteligencia artificial esté al alcance de todos.
+            </p>
+            <a href="#contact" class="cta-button">Descubre cómo desarrollamos soluciones personalizadas para ti</a>
+        </div>
+    </section>
+
+    <!-- 8. Contacto: Comencemos Juntos -->
+    <section id="contact">
+        <h2>Hablemos de tus necesidades</h2>
+        <form>
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Correo Electrónico" required>
+            <textarea placeholder="Breve descripción de tu negocio y tus objetivos" rows="6" required></textarea>
+            <button type="submit">Enviar Mensaje</button>
         </form>
-    </div>
+    </section>
+
+    <!-- 9. Testimonios -->
+    <section class="testimonials">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="testimonial animate__animated animate__fadeInUp">
+            <p>"ELMOAI transformó nuestra comunicación empresarial. Ahora interactuamos con nuestros clientes de manera eficiente y personalizada."</p>
+            <p class="client">- Ana Torres, Dueña de Tienda Online</p>
+        </div>
+        <div class="testimonial animate__animated animate__fadeInUp">
+            <p>"Gracias a la automatización de procesos de ELMOAI, hemos reducido costos y mejorado nuestra productividad significativamente."</p>
+            <p class="client">- Luis Martínez, Gerente de Servicios</p>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer>
+        <div class="footer-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#equipo">Equipo</a>
+            <a href="#contact">Contacto</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><img src="https://via.placeholder.com/24" alt="Instagram"></a>
+            <a href="#"><img src="https://via.placeholder.com/24" alt="LinkedIn"></a>
+        </div>
+        <p>Contacto: <a href="mailto:contacto@elmoai.cl">contacto@elmoai.cl</a> | +56 9 XXX XXXX</p>
+        <p>© 2024 ELMOAI - Todos los derechos reservados</p>
+    </footer>
 
     <!-- Modal -->
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
-            <h2 style="font-family: 'Roboto Slab', serif; margin-bottom: 1rem;">Gracias por tu interés</h2>
-            <p>Lamentablemente, en este momento el formulario no hace nada.</p>
-            <button id="closeModal" style="margin-top: 1rem; padding: 0.75rem 1.5rem; background-color: #6F5F4F; color: #fff; border: none; border-radius: 30px; cursor: pointer;">Entendido</button>
+            <h2>Gracias por tu interés</h2>
+            <p>Hemos recibido tu mensaje y nos pondremos en contacto contigo pronto.</p>
+            <button id="closeModal">Entendido</button>
         </div>
     </div>
 
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"></script>
     <script>
+        // Control del envío del formulario para mostrar modal
         document.querySelector('#contact form').addEventListener('submit', function(e) {
             e.preventDefault();
             document.getElementById('contactModal').style.display = 'flex';
         });
 
-        // Close modal when clicking on close button or outside the modal
+        // Cerrar modal
         document.querySelector('.modal-close').addEventListener('click', function() {
             document.getElementById('contactModal').style.display = 'none';
         });
@@ -317,9 +672,9 @@
             document.getElementById('contactModal').style.display = 'none';
         });
 
-        document.getElementById('contactModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.style.display = 'none';
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('contactModal')) {
+                document.getElementById('contactModal').style.display = 'none';
             }
         });
     </script>
