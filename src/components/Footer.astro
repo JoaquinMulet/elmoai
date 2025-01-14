@@ -1,0 +1,94 @@
+---
+---
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <div class="text-part">
+                <span class="el">El</span>
+                <span class="moai-text">Moai</span>
+            </div>
+            <div class="moai-logo">
+                <img src="/elmoai_logo.svg" alt="Moai Logo" />
+            </div>
+        </div>
+        <div class="footer-info">
+            <p> 2025 El Moai. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        padding: 4rem 2rem;
+        background: #fafafa;
+        margin-top: auto;
+        font-family: 'Satoshi', system-ui, sans-serif;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-logo {
+        display: none; /* Oculto por defecto, visible en móvil */
+    }
+
+    .text-part {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        gap: 0.2em;
+        font-family: 'Satoshi', system-ui, sans-serif;
+    }
+
+    .el {
+        font-size: 1.4rem;
+        font-weight: 400;
+        opacity: 0.7;
+        letter-spacing: 0.05em;
+    }
+
+    .moai-text {
+        font-size: 1.4rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+    }
+
+    .moai-logo {
+        height: 3rem;
+        width: auto;
+        display: flex;
+        align-items: center;
+        margin-left: -0.2rem;
+    }
+
+    .moai-logo img {
+        height: 100%;
+        width: auto;
+        transform: scaleX(-1);
+    }
+
+    .footer-info {
+        font-size: 0.9rem;
+        opacity: 0.7;
+        font-family: 'Satoshi', system-ui, sans-serif;
+    }
+
+    @media (max-width: 768px) {
+        .footer-content {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    }
+</style>

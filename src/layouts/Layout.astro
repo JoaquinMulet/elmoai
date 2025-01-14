@@ -1,22 +1,117 @@
+---
+interface Props {
+	title: string;
+}
+
+import { ViewTransitions } from 'astro:transitions';
+import Footer from '../components/Footer.astro';
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
+		<a href="/" class="logo desktop-only">
+			<div class="logo-container">
+				<div class="text-part">
+					<span class="el">El</span>
+					<span class="moai-text">Moai</span>
+				</div>
+				<div class="moai-logo">
+					<img src="/elmoai_logo.svg" alt="Moai Logo" />
+				</div>
+			</div>
+		</a>
 		<slot />
+		<Footer />
 	</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
+	.logo {
+		position: fixed;
+		top: 2rem;
+		left: 2rem;
+		z-index: 1000;
+		text-decoration: none;
+		color: #1a1a1a;
+	}
+
+	.logo-container {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.text-part {
+		display: flex;
+		flex-direction: column;
+		align-items: baseline;
+		gap: 0.2em;
+		font-family: 'Satoshi', system-ui, sans-serif;
+	}
+
+	.el {
+		font-size: 2rem;
+		font-weight: 400;
+		opacity: 0.7;
+		letter-spacing: 0.05em;
+		line-height: 1;
+	}
+
+	.moai-text {
+		font-size: 2rem;
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		line-height: 1;
+	}
+
+	.moai-logo {
+		height: 7rem;
+		width: auto;
+		display: flex;
+		align-items: center;
+		margin-left: -0.2rem;
+	}
+
+	.moai-logo img {
 		height: 100%;
+		width: auto;
+		transform: scaleX(-1);
+	}
+
+	@media (max-width: 768px) {
+		.logo {
+			top: 1.5rem;
+			left: 1.5rem;
+		}
+
+		.el, .moai-text {
+			font-size: 1.6rem;
+		}
+
+		.moai-logo {
+			height: 6rem;
+		}
+
+		.desktop-only {
+			display: none !important;
+			visibility: hidden;
+			opacity: 0;
+			pointer-events: none;
+			position: absolute;
+			z-index: -1;
+		}
 	}
 </style>
