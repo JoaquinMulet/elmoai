@@ -1,187 +1,55 @@
 ---
 ---
 
-<section class="contact-section" id="contacto">
-    <div class="contact-container">
-        <div class="header">
-            <h2>Escríbenos</h2>
-            <p>Cuéntanos sobre tu proyecto</p>
-        </div>
-        <form class="contact-form">
-            <div class="form-group">
-                <input type="text" id="name" name="name" placeholder=" " required>
-                <label for="name">Tu nombre</label>
-                <div class="line"></div>
-            </div>
-            <div class="form-group">
-                <input type="email" id="email" name="email" placeholder=" " required>
-                <label for="email">Tu email</label>
-                <div class="line"></div>
-            </div>
-            <div class="form-group">
-                <textarea id="message" name="message" placeholder=" " required></textarea>
-                <label for="message">Tu mensaje</label>
-                <div class="line"></div>
-            </div>
-            <button type="submit" class="contact-button">
-                Enviar mensaje
+<section class="contact-section" id="contact">
+    <div class="container">
+        <div class="contact-content">
+            <p class="text">
+                No pierdas mas el tiempo y haz clic en el botón de chat para hablar con El Moai.
+            </p>
+            <button class="chat-button" id="chat-prompt-btn">
+                Hablar con El Moai
             </button>
-        </form>
+        </div>
     </div>
 </section>
 
 <style>
     .contact-section {
-        padding: 3rem 2rem 1rem;
-        width: 100%;
-        display: grid;
-        place-items: center;
-        background: #ffffff;
-        box-sizing: border-box;
-        min-height: auto;
-    }
-
-    .contact-container {
-        max-width: 500px;
-        width: 100%;
-        padding: 3rem;
-        background: #ffffff;
-        border-radius: 1.5rem;
-        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.05);
-        margin: 0;
-    }
-
-    .header {
-        text-align: center;
-        margin-bottom: 2.5rem;
-    }
-
-    h2 {
-        font-size: 2.5rem;
-        font-weight: 500;
-        margin-bottom: 0.5rem;
-        letter-spacing: -0.02em;
-        color: #1a1a1a;
-    }
-
-    .header p {
-        font-size: 1.1rem;
-        color: rgba(26, 26, 26, 0.7);
-        font-weight: 400;
-    }
-
-    .contact-form {
+        min-height: 100vh;
         display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        width: 100%;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        margin-top: -5vh;
     }
 
-    .form-group {
-        position: relative;
-        padding-top: 0.5rem;
+    .container {
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 2rem;
     }
 
-    input, textarea {
-        width: 100%;
-        padding: 0.8rem 0.5rem;
-        margin: 0 -0.5rem;
-        border: none;
-        background: transparent;
-        font-family: 'Satoshi', system-ui, sans-serif;
-        font-size: 1rem;
+    .contact-content {
+        max-width: 800px;
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .text {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+        font-weight: 400;
+        line-height: 1.2;
         color: #1a1a1a;
-        transition: all 0.3s ease;
-        -webkit-font-smoothing: antialiased;
-        outline: none;
+        margin: 0;
+        margin-bottom: 6rem;
     }
 
-    /* Estilos para el autocompletado */
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus,
-    input:-webkit-autofill:active {
-        -webkit-box-shadow: none !important;
-        box-shadow: none !important;
-        -webkit-text-fill-color: #1a1a1a !important;
-        background-color: transparent !important;
-        transition: background-color 5000s ease-in-out 0s;
-    }
-
-    /* Eliminar el borde de foco */
-    input:focus,
-    textarea:focus {
-        outline: none;
-        box-shadow: none;
-    }
-
-    label {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.1rem;
-        color: rgba(26, 26, 26, 0.6);
-        transition: opacity 0.2s ease;
-        pointer-events: none;
-    }
-
-    /* Ocultar label durante hover y focus */
-    input:hover + label,
-    input:focus + label,
-    textarea:hover + label,
-    textarea:focus + label,
-    input:not(:placeholder-shown) + label,
-    textarea:not(:placeholder-shown) + label {
-        opacity: 0;
-    }
-
-    /* Asegurar que el label se oculte durante el autocompletado */
-    input:-webkit-autofill + label {
-        opacity: 0;
-    }
-
-    .line {
-        position: absolute;
-        bottom: 0;
-        left: -0.5rem;
-        width: calc(100% + 1rem);
-        height: 1px;
-        background: rgba(26, 26, 26, 0.2);
-        transition: all 0.3s ease;
-    }
-
-    .line::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: #1a1a1a;
-        transform: scaleX(0);
-        transition: transform 0.3s ease;
-    }
-
-    textarea {
-        min-height: 100px;
-        resize: vertical;
-        line-height: 1.5;
-    }
-
-    textarea + label {
-        top: 1.3rem;
-        transform: none;
-    }
-
-    input:focus ~ .line::after,
-    textarea:focus ~ .line::after {
-        transform: scaleX(1);
-    }
-
-    .contact-button {
+    .chat-button {
         font-family: 'Satoshi', system-ui, sans-serif;
-        font-size: 1.4rem;
+        font-size: 1.8rem;
         font-weight: 400;
         letter-spacing: 0.1em;
         color: #1a1a1a;
@@ -191,12 +59,9 @@
         background: none;
         border: none;
         cursor: pointer;
-        margin-top: 1.5rem;
-        width: auto;
-        align-self: center;
     }
 
-    .contact-button::after {
+    .chat-button::after {
         content: '';
         position: absolute;
         width: 100%;
@@ -209,66 +74,44 @@
         transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
-    .contact-button:hover::after {
+    .chat-button:hover::after {
         transform: scaleX(1);
         transform-origin: left;
     }
 
     @media (max-width: 768px) {
         .contact-section {
-            padding: 2rem 1rem;
+            padding: 1rem;
+            margin-top: -10vh;
+            min-height: 100vh;
+            height: 100vh;
         }
 
-        .contact-container {
-            padding: 2rem 1.5rem;
-            border-radius: 1rem;
+        .contact-content {
+            width: 95%;
         }
 
-        .header {
-            margin-bottom: 2rem;
+        .text {
+            max-width: none;
         }
 
-        h2 {
-            font-size: 2rem;
-        }
-
-        .header p {
-            font-size: 1rem;
-        }
-
-        .contact-form {
-            gap: 2rem;
-        }
-
-        .form-group {
-            margin: 0;
-            padding: 0 0.5rem;
-        }
-
-        input, textarea {
-            padding: 0.8rem;
-            font-size: 1rem;
-            margin: 0;
-            width: calc(100% - 1rem);
-        }
-
-        label {
-            font-size: 1rem;
-            padding-left: 0.8rem;
-        }
-
-        .line {
-            left: 0;
-            width: 100%;
+        .chat-button {
+            font-size: 1.4rem;
         }
     }
 </style>
 
 <script>
-    const form = document.querySelector('.contact-form');
-    form?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        // Aquí iría la lógica de envío del formulario
-        console.log('Formulario enviado');
+    document.addEventListener('DOMContentLoaded', () => {
+        const chatPromptBtn = document.getElementById('chat-prompt-btn');
+        
+        if (chatPromptBtn) {
+            chatPromptBtn.addEventListener('click', () => {
+                const chatbotButton = document.querySelector('.chatbot-button');
+                if (chatbotButton) {
+                    chatbotButton.click();
+                }
+            });
+        }
     });
 </script>
