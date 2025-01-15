@@ -6,7 +6,7 @@ export default function ChatBot() {
     const [messages, setMessages] = useState([
         {
             sender: 'bot',
-            content: '¡Hola! Soy El Moai, tu asistente virtual. ¿En qué puedo ayudarte hoy?'
+            content: 'Soy El Moai, una prueba del poder de la inteligencia artificial para transformar tu negocio. Conversemos para que nuestro equipo se ponga en contacto contigo.'
         }
     ]);
     const [inputValue, setInputValue] = useState('');

@@ -2,19 +2,19 @@
 const benefits = [
     {
         title: "Beneficios financieros",
-        text: "Nuestro enfoque está en transformar la manera en que operas, reduciendo tiempos y errores para que obtengas mejores resultados a la vez que te liberamos de las tareas repetitivas que no aportan valor real a tu negocio. La inteligencia artificial será nuestro aliado, con ello optimizamos tus procesos y reducimos costos, lo que te permite aumentar tus márgenes y mejorar tus utilidades sin necesidad de incrementar precios."
+        text: "Optimiza tus procesos, reduce costos y aumenta tus márgenes con inteligencia artificial. Libérate de tareas repetitivas y enfócate en hacer crecer tu negocio con mejores resultados y genere mayores utilidades."
     },
     {
         title: "Beneficios de eficiencia",
-        text: "Automatizamos tareas repetitivas y optimizamos procesos clave para que tu equipo pueda enfocarse en lo estratégico y en la innovación. La inteligencia artificial se convierte en tu aliado, ejecutando operaciones rutinarias con una precisión constante y sin interrupciones. Esto no solo acelera tu productividad, sino que elimina cuellos de botella y garantiza que cada tarea se realice de manera eficiente y consistente."
+        text: "Automatizamos tareas y optimizamos procesos para que tu equipo se concentre en tareas estrategicas. La IA garantiza precisión, elimina cuellos de botella y acelera tu productividad."
     },
     {
         title: "Beneficios competitivos",
-        text: "Te ayudamos a convertirte en una empresa ágil y competitiva. Al reducir costos y optimizar recursos, podrás ofrecer precios atractivos sin comprometer tus utilidades. Pero no solo se trata de precios: también podrás brindar una experiencia superior a tus clientes, posicionándote como la opción preferida en tu mercado. Serás esa empresa que marca la pauta, ofreciendo calidad y valor que nadie más puede igualar."
+        text: "Reduce costos, optimiza recursos y destaca en tu mercado con precios competitivos y experiencias superiores. Posiciónate como la opción preferida al ofrecer calidad y valor incomparables."
     },
     {
         title: "Beneficios para tus clientes",
-        text: "Tus clientes no solo obtendrán un servicio eficiente, sino una experiencia diseñada para ellos. Personalizaremos cada interacción, ofreciendo soluciones rápidas, precisas y disponibles en todo momento. Esto no solo aumenta su satisfacción, sino que también fortalece la relación con tu marca, convirtiéndolos en defensores de tus productos o servicios. Cuando tus clientes son felices, tu negocio crece."
+        text: "Mejora la experiencia de tus clientes con soluciones personalizadas y atención disponible en todo momento. Aumenta su satisfacción y fidelidad mientras impulsas el crecimiento de tu negocio."
     }
 ];
 ---
@@ -55,34 +55,24 @@ const benefits = [
 <style>
     .benefits-section {
         min-height: 100vh;
-        padding: 0;
         background: #ffffff;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        padding-bottom: 6rem;
-    }
-
-    @media (max-width: 768px) {
-        .benefits-section {
-            margin-top: -4rem;
-            padding-top: 1rem;
-            justify-content: flex-start;
-        }
+        justify-content: flex-start;
+        padding-top: 15vh;
     }
 
     .carousel-container {
         width: 100%;
-        max-width: 800px;
+        max-width: 1000px;
         position: relative;
         margin: 0 auto;
-        padding-top: 2rem;
     }
 
     .carousel {
         position: relative;
-        height: 400px;
+        height: 450px;
         overflow: hidden;
     }
 
@@ -91,41 +81,59 @@ const benefits = [
         width: 100%;
         height: 100%;
         background: white;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.03);
+        box-shadow: none;
         opacity: 0;
         transform: translateX(100%);
         transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .card-content {
-        padding: 2rem 2rem;
+        padding: 4rem;
         height: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .benefit-card h3 {
-        font-size: 1.8rem;
-        font-weight: 500;
-        margin: 0 0 2.5rem 0;
-        color: #1a1a1a;
-        text-align: center;
+        justify-content: center;
+        text-align: left;
         width: 100%;
     }
 
-    .benefit-card p {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        color: #4a4a4a;
-        margin: 0 auto;
-        max-width: 50ch;
-        text-align: justify;
-        text-justify: inter-word;
-        hyphens: none;
-        word-break: normal;
+    .card-content h3 {
+        color: #1a1a1a;
+        font-size: 3.2rem;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -0.02em;
+    }
+
+    .card-content p {
+        color: #333333;
+        font-size: 1.6rem;
+        line-height: 1.4;
+        margin: 0;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        max-width: 95%;
+    }
+
+    @media (max-width: 768px) {
+        .card-content {
+            padding: 2.5rem;
+        }
+
+        .card-content h3 {
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-content p {
+            font-size: 1.3rem;
+            max-width: 100%;
+        }
+
+        .benefits-section {
+            padding-top: 10vh;
+        }
     }
 
     .benefit-card.active {
@@ -140,23 +148,28 @@ const benefits = [
 
     .nav-controls {
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        margin-top: 1.5rem;
-        padding: 0 1rem;
+        align-items: center;
+        margin-top: 2rem;
+        padding: 0 1.5rem;
     }
 
     .nav-button {
         background: none;
         border: 1px solid rgba(0, 0, 0, 0.1);
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         color: #1a1a1a;
         transition: all 0.3s ease;
+    }
+
+    .nav-button svg {
+        width: 28px;
+        height: 28px;
     }
 
     .nav-button:hover {
@@ -170,7 +183,7 @@ const benefits = [
     }
 
     .dot {
-        width: 24px;
+        width: 28px;
         height: 2px;
         border: none;
         background: #1a1a1a;
@@ -182,7 +195,7 @@ const benefits = [
 
     .dot.active {
         opacity: 1;
-        width: 32px;
+        width: 40px;
     }
 
     .contact-button {
@@ -191,11 +204,9 @@ const benefits = [
         letter-spacing: 0.1em;
         color: #1a1a1a;
         text-decoration: none;
-        padding: 1rem 2rem;
-        margin-top: 1rem;
-        margin-bottom: 5rem;
+        display: inline-block;
+        margin-top: 3rem;
         position: relative;
-        bottom: 0;
     }
 
     .contact-button::after {
@@ -203,7 +214,7 @@ const benefits = [
         position: absolute;
         width: 100%;
         height: 1px;
-        bottom: 0;
+        bottom: -4px;
         left: 0;
         background-color: currentColor;
         transform: scaleX(0);
@@ -217,18 +228,22 @@ const benefits = [
     }
 
     @media (max-width: 768px) {
-        .card-content {
-            padding: 2rem;
+        .benefits-section {
+            padding: 3rem 1rem;
         }
 
-        .benefit-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+        .carousel {
+            height: 400px;
         }
 
-        .benefit-card p {
-            font-size: 1rem;
-            line-height: 1.6;
+        .nav-button {
+            width: 45px;
+            height: 45px;
+        }
+
+        .nav-button svg {
+            width: 24px;
+            height: 24px;
         }
     }
 </style>
