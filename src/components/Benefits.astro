@@ -109,8 +109,8 @@ const benefits = [
         box-sizing: border-box;
         overflow-wrap: break-word;
         word-wrap: break-word;
-        -webkit-hyphens: auto;
-        hyphens: auto;
+        -webkit-hyphens: none;
+        hyphens: none;
     }
 
     .card-content h3 {
@@ -121,6 +121,7 @@ const benefits = [
         line-height: 1;
         letter-spacing: -0.02em;
         max-width: 100%;
+        word-break: keep-all;
     }
 
     .card-content p {
@@ -133,6 +134,7 @@ const benefits = [
         max-width: 100%;
         overflow-wrap: break-word;
         word-wrap: break-word;
+        word-break: keep-all;
     }
 
     @media (max-width: 768px) {
