@@ -60,7 +60,7 @@ const benefits = [
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        padding-top: 15vh;
+        padding-top: 10vh;
     }
 
     .carousel-container {
@@ -85,55 +85,7 @@ const benefits = [
         opacity: 0;
         transform: translateX(100%);
         transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .card-content {
-        padding: 4rem;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: left;
-        width: 100%;
-    }
-
-    .card-content h3 {
-        color: #1a1a1a;
-        font-size: 3.2rem;
-        margin-bottom: 2rem;
-        font-weight: 400;
-        line-height: 1;
-        letter-spacing: -0.02em;
-    }
-
-    .card-content p {
-        color: #333333;
-        font-size: 1.6rem;
-        line-height: 1.4;
-        margin: 0;
-        font-weight: 400;
-        letter-spacing: -0.01em;
-        max-width: 95%;
-    }
-
-    @media (max-width: 768px) {
-        .card-content {
-            padding: 2.5rem;
-        }
-
-        .card-content h3 {
-            font-size: 2.4rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-content p {
-            font-size: 1.3rem;
-            max-width: 100%;
-        }
-
-        .benefits-section {
-            padding-top: 10vh;
-        }
+        overflow: hidden;
     }
 
     .benefit-card.active {
@@ -144,6 +96,77 @@ const benefits = [
     .benefit-card.previous {
         transform: translateX(-100%);
         opacity: 0;
+    }
+
+    .card-content {
+        padding: 4rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+
+    .card-content h3 {
+        color: #1a1a1a;
+        font-size: 3.2rem;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        max-width: 100%;
+    }
+
+    .card-content p {
+        color: #333333;
+        font-size: 1.6rem;
+        line-height: 1.4;
+        margin: 0;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    @media (max-width: 768px) {
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-content h3 {
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-content p {
+            font-size: 1.3rem;
+        }
+    }
+
+    /* Ajustes específicos para iOS Safari */
+    @supports (-webkit-touch-callout: none) {
+        .card-content {
+            padding: 2rem;
+            width: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .card-content h3 {
+            width: 100%;
+            display: inline-block;
+        }
+
+        .card-content p {
+            width: 100%;
+            display: inline-block;
+        }
     }
 
     .nav-controls {
