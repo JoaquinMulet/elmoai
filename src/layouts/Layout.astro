@@ -14,12 +14,64 @@ const { title } = Astro.props;
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="El Moai - Agencia líder en implementación de Inteligencia Artificial para negocios. Transformamos empresas con agentes de IA personalizados, automatización inteligente y soluciones innovadoras." />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="robots" content="index, follow" />
+		<meta name="author" content="El Moai" />
+		<meta name="keywords" content="inteligencia artificial, IA para negocios, agentes de IA, automatización inteligente, transformación digital, consultoría IA, machine learning, AI consulting" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://elmoai.cl/" />
+		<meta property="og:title" content="El Moai - Agencia de Inteligencia Artificial para Negocios" />
+		<meta property="og:description" content="Transformamos empresas con agentes de IA personalizados, automatización inteligente y soluciones innovadoras." />
+		<meta property="og:image" content="https://elmoai.cl/og-image.jpg" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://elmoai.cl/" />
+		<meta property="twitter:title" content="El Moai - Agencia de Inteligencia Artificial para Negocios" />
+		<meta property="twitter:description" content="Transformamos empresas con agentes de IA personalizados, automatización inteligente y soluciones innovadoras." />
+		<meta property="twitter:image" content="https://elmoai.cl/og-image.jpg" />
+
+		<!-- Favicon -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta name="theme-color" content="#ffffff" />
+
+		<!-- Fonts -->
+		<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+		
+		<!-- SEO -->
+		<link rel="canonical" href="https://elmoai.cl/" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "El Moai",
+				"description": "Agencia líder en implementación de Inteligencia Artificial para negocios",
+				"url": "https://elmoai.cl",
+				"logo": "https://elmoai.cl/elmoai_logo.svg",
+				"contactPoint": {
+					"@type": "ContactPoint",
+					"telephone": "",
+					"contactType": "customer service",
+					"areaServed": "CL"
+				},
+				"sameAs": [
+					"https://www.linkedin.com/company/elmoai",
+					"https://twitter.com/elmoai"
+				]
+			}
+		</script>
+
+		<title>{title} | El Moai - Agencia de Inteligencia Artificial</title>
 		<ViewTransitions />
 	</head>
 	<body>
